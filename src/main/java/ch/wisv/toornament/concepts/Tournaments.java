@@ -28,9 +28,11 @@ public class Tournaments extends Concept {
 
     }
 
-    public TournamentDetails getTournament(String id) {
-
-        return new TournamentDetails();
+    public TournamentDetails getTournament(String id) throws IOException {
+        Request request = client.getRequestBuilder().get().url("https://api.toornament.com/v1/tournaments/"+id).build();
+        String responseBody = client.executeRequest(request).body().string();
+        
+        return mapper.readValue(responseBody, TournamentDetails.class);
 
     }
 }
