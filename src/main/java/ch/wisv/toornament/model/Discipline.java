@@ -7,5 +7,9 @@ public class Discipline {
     String shortname;
     String fullname;
     String copyrights;
+    
+    public String getID() {
+    return id;
+}
 
 }

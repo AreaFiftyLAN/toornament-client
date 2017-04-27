@@ -13,5 +13,9 @@ public class ApiTokenResponse {
     @JsonProperty("token_type")
     String tokenType;
     String scope;
+    public String getAccessToken()
+    {
+        return accessToken;
+    }
 
 }
