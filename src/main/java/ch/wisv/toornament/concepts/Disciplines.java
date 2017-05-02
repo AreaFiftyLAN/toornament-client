@@ -6,6 +6,8 @@ import java.util.List;
 import ch.wisv.toornament.ToornamentClient;
 import ch.wisv.toornament.model.Discipline;
 import ch.wisv.toornament.model.DisciplineDetails;
+import java.io.IOException;
+import okhttp3.Request;
 
 public class Disciplines extends Concept {
 
@@ -15,13 +17,18 @@ public class Disciplines extends Concept {
         super(client);
     }
 
-    public List<Discipline> getDisciplines() {
+    public List<Discipline> getDisciplines() throws IOException {
         // TODO: PLACEHOLDER
-        return Collections.emptyList();
+        Request request = client.getAuthenticatedRequestBuilder().get().url("https://api.toornament.com/v1"+endpoint).build();
+         String responseBody = client.executeRequest(request).body().string();
+        return mapper.readValue(responseBody, mapper.getTypeFactory().constructCollectionType(List.class, Discipline.class));
     }
 
-    public DisciplineDetails getDiscipline(String id) {
+    public DisciplineDetails getDiscipline(String id) throws IOException {
         // TODO: PLACEHOLDER
-        return new DisciplineDetails();
+        Request request = client.getAuthenticatedRequestBuilder().get().url("https://api.toornament.com/v1"+endpoint+ id ).build();
+         String responseBody = client.executeRequest(request).body().string();
+         
+        return mapper.readValue(responseBody, mapper.getTypeFactory().constructCollectionType(List.class, DisciplineDetails.class));
     }
 }
