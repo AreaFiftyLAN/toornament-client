@@ -1,5 +1,6 @@
 package ch.wisv.toornament;
 
+import ch.wisv.toornament.concepts.Disciplines;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
@@ -42,6 +43,10 @@ public class ToornamentClient {
 
     public Tournaments tournaments() {
         return new Tournaments(this);
+    }
+    
+    public Disciplines disciplines() {
+        return new Disciplines(this);
     }
 
     public void authorize() {
