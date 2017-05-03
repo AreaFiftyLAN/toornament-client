@@ -11,7 +11,7 @@ import okhttp3.Request;
 
 public class Disciplines extends Concept {
 
-    private String endpoint = "/disciplines";
+    private String endpoint = "/disciplines/";
 
     public Disciplines(ToornamentClient client) {
         super(client);
@@ -26,7 +26,7 @@ public class Disciplines extends Concept {
 
     public DisciplineDetails getDiscipline(String id) throws IOException {
         // TODO: PLACEHOLDER
-        Request request = client.getAuthenticatedRequestBuilder().get().url("https://api.toornament.com/v1"+endpoint+ "/"+ id ).build();
+        Request request = client.getAuthenticatedRequestBuilder().get().url("https://api.toornament.com/v1"+endpoint+ id ).build();
          String responseBody = client.executeRequest(request).body().string();
          
         return mapper.readValue(responseBody, mapper.getTypeFactory().constructCollectionType(List.class, DisciplineDetails.class));
