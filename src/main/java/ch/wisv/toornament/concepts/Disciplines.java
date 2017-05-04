@@ -29,6 +29,6 @@ public class Disciplines extends Concept {
         Request request = client.getAuthenticatedRequestBuilder().get().url("https://api.toornament.com/v1/disciplines"+ id ).build();
          String responseBody = client.executeRequest(request).body().string();
          
-        return mapper.readValue(responseBody, mapper.getTypeFactory().constructCollectionType(List.class, DisciplineDetails.class));
+        return mapper.readValue(responseBody, mapper.getTypeFactory().constructType(DisciplineDetails.class));
     }
 }
