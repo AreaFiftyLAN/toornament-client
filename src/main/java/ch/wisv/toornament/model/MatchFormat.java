@@ -1,5 +1,16 @@
 package ch.wisv.toornament.model;
 
 public enum MatchFormat {
-    NONE, ONE, HOME_AWAY, BO3, BO5, BO7, BO9, BO11
+    NONE("none"), ONE("one"), HOME_AWAY("home_away"), BO3("bo3"), BO5("bo5"), BO7("bo7"), BO9("bo9"), BO11("bo11");
+
+    private String name;
+
+    MatchFormat(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
