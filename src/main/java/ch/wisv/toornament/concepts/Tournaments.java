@@ -22,45 +22,86 @@ public class Tournaments extends Concept {
     }
 
     public List<Tournament> getAllTournaments() throws IOException {
-        Request request = client.getRequestBuilder().get().url("https://api.toornament.com/v1/tournaments").build();
+        Request request = client.getRequestBuilder()
+            .get()
+            .url("https://api.toornament.com/v1/tournaments")
+            .build();
         String responseBody = client.executeRequest(request).body().string();
 
         return mapper.readValue(responseBody, mapper.getTypeFactory().constructCollectionType(List.class, Tournament.class));
     }
 
     public List<Tournament> getMyTournaments() throws IOException {
-        Request request = client.getAuthenticatedRequestBuilder().get().url("https://api.toornament.com/v1/me/tournaments").build();
+        Request request = client.getAuthenticatedRequestBuilder()
+            .get()
+            .url("https://api.toornament.com/v1/me/tournaments")
+            .build();
         String responseBody = client.executeRequest(request).body().string();
         return mapper.readValue(responseBody, mapper.getTypeFactory().constructCollectionType(List.class, Tournament.class));
 
     }
 
     public TournamentDetails getTournament(String id) throws IOException {
-        Request request = client.getAuthenticatedRequestBuilder().get().url("https://api.toornament.com/v1/tournaments/" + id).build();
+        Request request = client.getAuthenticatedRequestBuilder()
+            .get()
+            .url("https://api.toornament.com/v1/tournaments/" + id)
+            .build();
         String responseBody = client.executeRequest(request).body().string();
 
         return mapper.readValue(responseBody, TournamentDetails.class);
     }
 
-    public Tournament createTournament(TournamentRequest tournamentRequest) {
+    public TournamentDetails createTournament(TournamentRequest tournamentRequest) {
         try {
             Request request = client.getAuthenticatedRequestBuilder()
-                    .post(RequestBody.create(JSON, mapper.writeValueAsString(tournamentRequest)))
-                    .url("https://api.toornament.com/v1/me/tournaments")
-                    .build();
+                .post(RequestBody.create(JSON, mapper.writeValueAsString(tournamentRequest)))
+                .url("https://api.toornament.com/v1/tournaments")
+                .build();
             Response response = client.executeRequest(request);
             if (response.isSuccessful()) {
-                return mapper.readValue(response.body().string(), Tournament.class);
+                return mapper.readValue(response.body().string(), TournamentDetails.class);
             } else {
                 throw new ToornamentException("Couldn't create tournament" + response.body().string());
             }
 
         } catch (IOException e) {
+            e.printStackTrace();
             throw new ToornamentException("IOException occurred");
         }
     }
 
-    public Tournament createTournament(String discipline, String name, Integer size, ParticipantType participantType) {
+    public TournamentDetails createTournament(String discipline, String name, Integer size, ParticipantType participantType) {
         return createTournament(new TournamentRequest(discipline, name, size, participantType));
+    }
+
+    public TournamentDetails editTournament(String id, TournamentRequest tournamentRequest) {
+        try {
+            Request request = client.getAuthenticatedRequestBuilder()
+                .patch(RequestBody.create(JSON, mapper.writeValueAsString(tournamentRequest)))
+                .url("https://api.toornament.com/v1/tournaments/" + id)
+                .build();
+            Response response = client.executeRequest(request);
+            if (response.isSuccessful()) {
+                return mapper.readValue(response.body().string(), TournamentDetails.class);
+            } else {
+                throw new ToornamentException("Couldn't edit tournament" + response.body().string());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new ToornamentException("IOException occurred");
+        }
+    }
+
+    public void deleteTournament(String id) {
+        Request request = client.getAuthenticatedRequestBuilder()
+            .delete()
+            .url("https://api.toornament.com/v1/tournaments/" + id)
+            .build();
+
+        Response response = client.executeRequest(request);
+
+        if (!response.isSuccessful()) {
+            throw new ToornamentException("Could not delete tournament");
+        }
     }
 }
