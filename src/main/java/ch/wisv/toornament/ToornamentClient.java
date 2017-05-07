@@ -5,16 +5,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 
+import ch.wisv.toornament.concepts.Matches;
 import ch.wisv.toornament.concepts.Tournaments;
+import ch.wisv.toornament.exception.ToornamentException;
+import ch.wisv.toornament.model.TournamentDetails;
 import ch.wisv.toornament.model.DisciplineDetails;
 import ch.wisv.toornament.model.request.ApiTokenRequest;
 import ch.wisv.toornament.model.response.ApiTokenResponse;
 import java.text.SimpleDateFormat;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import okhttp3.*;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 public class ToornamentClient {
     public static final MediaType JSON
@@ -47,9 +50,22 @@ public class ToornamentClient {
     public Tournaments tournaments() {
         return new Tournaments(this);
     }
-    
+
     public Disciplines disciplines() {
         return new Disciplines(this);
+    }
+
+    public Matches matches(TournamentDetails tournament) {
+        return new Matches(this, tournament);
+    }
+
+    public Matches matches(String tournamentId) {
+        try {
+            return new Matches(this, tournaments().getTournament(tournamentId));
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new ToornamentException("Can't retrieve Tournament with id " + tournamentId);
+        }
     }
 
     public void authorize() {
