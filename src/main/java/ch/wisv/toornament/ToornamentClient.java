@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 
 import ch.wisv.toornament.concepts.Tournaments;
+import ch.wisv.toornament.model.DisciplineDetails;
 import ch.wisv.toornament.model.request.ApiTokenRequest;
 import ch.wisv.toornament.model.response.ApiTokenResponse;
 import okhttp3.MediaType;
