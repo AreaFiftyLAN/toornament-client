@@ -1,10 +1,9 @@
 package ch.wisv.toornament.model;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-=======
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -12,8 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.HashMap;
 import java.util.Map;
 
->>>>>>> parent of 0b5adf4... Revert "Remove Lombok dependency and apply editorconfig"
-=======
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,7 +19,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.HashMap;
 import java.util.Map;
 
->>>>>>> refs/remotes/origin/master
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class TournamentDetails extends Tournament {
 
     @JsonProperty("participant_type")

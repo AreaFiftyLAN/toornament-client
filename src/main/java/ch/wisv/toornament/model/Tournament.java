@@ -18,26 +18,13 @@ public class Tournament {
     private Date dateEnd;
     private Boolean online;
     @JsonProperty("public")
-<<<<<<< HEAD
-<<<<<<< HEAD
-    Boolean isPublic;
-    Boolean archived;
-    String location;
-    String country;
-    Integer size;
-=======
-=======
->>>>>>> refs/remotes/origin/master
+
+
     private Boolean isPublic;
     private Boolean archived;
     private String location;
     private String country;
     private Integer size;
-<<<<<<< HEAD
->>>>>>> parent of 0b5adf4... Revert "Remove Lombok dependency and apply editorconfig"
-=======
->>>>>>> refs/remotes/origin/master
-
     public Tournament() {
     }
 
@@ -145,6 +132,7 @@ public class Tournament {
         this.size = size;
     }
 
+    @Override
     public String toString() {
         return "ch.wisv.toornament.model.Tournament(id=" + this.getId() + ", discipline=" + this
             .getDiscipline() + ", name=" + this.getName() + ", fullName=" + this.getFullName()
