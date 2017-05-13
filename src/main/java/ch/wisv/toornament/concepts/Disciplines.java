@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package ch.wisv.toornament.concepts;
 
 import java.util.Collections;
@@ -32,3 +33,32 @@ public class Disciplines extends Concept {
         return mapper.readValue(responseBody, mapper.getTypeFactory().constructType(DisciplineDetails.class));
     }
 }
+=======
+package ch.wisv.toornament.concepts;
+
+import java.util.Collections;
+import java.util.List;
+
+import ch.wisv.toornament.ToornamentClient;
+import ch.wisv.toornament.model.Discipline;
+import ch.wisv.toornament.model.DisciplineDetails;
+
+public class Disciplines extends Concept {
+
+    private String endpoint = "/disciplines/";
+
+    public Disciplines(ToornamentClient client) {
+        super(client);
+    }
+
+    public List<Discipline> getDisciplines() {
+        // TODO: PLACEHOLDER
+        return Collections.emptyList();
+    }
+
+    public DisciplineDetails getDiscipline(String id) {
+        // TODO: PLACEHOLDER
+        return new DisciplineDetails();
+    }
+}
+>>>>>>> parent of 0b5adf4... Revert "Remove Lombok dependency and apply editorconfig"

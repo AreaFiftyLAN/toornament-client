@@ -5,9 +5,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 
 import ch.wisv.toornament.model.MatchFormat;
+<<<<<<< HEAD
 import ch.wisv.toornament.model.MatchType;
 import ch.wisv.toornament.model.ParticipantType;
 import ch.wisv.toornament.model.Status;
+=======
+import ch.wisv.toornament.model.ParticipantType;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.Date;
+>>>>>>> parent of 0b5adf4... Revert "Remove Lombok dependency and apply editorconfig"
 
 public class TournamentRequest {
 

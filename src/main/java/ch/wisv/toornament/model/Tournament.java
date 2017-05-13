@@ -18,11 +18,19 @@ public class Tournament {
     Date dateEnd;
     Boolean online;
     @JsonProperty("public")
+<<<<<<< HEAD
     Boolean isPublic;
     Boolean archived;
     String location;
     String country;
     Integer size;
+=======
+    private Boolean isPublic;
+    private Boolean archived;
+    private String location;
+    private String country;
+    private Integer size;
+>>>>>>> parent of 0b5adf4... Revert "Remove Lombok dependency and apply editorconfig"
 
     public Tournament() {
     }
