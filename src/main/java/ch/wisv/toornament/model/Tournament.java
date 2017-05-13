@@ -6,18 +6,19 @@ import java.util.Date;
 
 public class Tournament {
 
-    String id;
-    String discipline;
-    String name;
+    private String id;
+    private String discipline;
+    private String name;
     @JsonProperty("full_name")
-    String fullName;
-    Status status;
+    private String fullName;
+    private Status status;
     @JsonProperty("date_start")
-    Date dateStart;
+    private Date dateStart;
     @JsonProperty("date_end")
-    Date dateEnd;
-    Boolean online;
+    private Date dateEnd;
+    private Boolean online;
     @JsonProperty("public")
+<<<<<<< HEAD
 <<<<<<< HEAD
     Boolean isPublic;
     Boolean archived;
@@ -25,12 +26,17 @@ public class Tournament {
     String country;
     Integer size;
 =======
+=======
+>>>>>>> refs/remotes/origin/master
     private Boolean isPublic;
     private Boolean archived;
     private String location;
     private String country;
     private Integer size;
+<<<<<<< HEAD
 >>>>>>> parent of 0b5adf4... Revert "Remove Lombok dependency and apply editorconfig"
+=======
+>>>>>>> refs/remotes/origin/master
 
     public Tournament() {
     }
