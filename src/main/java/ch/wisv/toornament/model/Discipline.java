@@ -17,5 +17,11 @@ public class Discipline {
     public String getFullname(){
         return this.fullname;
     }
+    public String getShortname(){
+        return this.shortname;
+    }
+    public String getCopyrights(){
+        return this.copyrights;
+    }
 
 }
