@@ -18,12 +18,13 @@ public class Tournament {
     private Date dateEnd;
     private Boolean online;
     @JsonProperty("public")
+
+
     private Boolean isPublic;
     private Boolean archived;
     private String location;
     private String country;
     private Integer size;
-
     public Tournament() {
     }
 
@@ -131,6 +132,7 @@ public class Tournament {
         this.size = size;
     }
 
+    @Override
     public String toString() {
         return "ch.wisv.toornament.model.Tournament(id=" + this.getId() + ", discipline=" + this
             .getDiscipline() + ", name=" + this.getName() + ", fullName=" + this.getFullName()

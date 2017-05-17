@@ -1,11 +1,26 @@
 package ch.wisv.toornament.model;
 
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.HashMap;
 import java.util.Map;
+
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.HashMap;
+import java.util.Map;
+
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TournamentDetails extends Tournament {
 

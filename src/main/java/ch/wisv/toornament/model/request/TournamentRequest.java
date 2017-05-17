@@ -6,6 +6,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
+
+import ch.wisv.toornament.model.MatchFormat;
+import ch.wisv.toornament.model.MatchType;
+import ch.wisv.toornament.model.ParticipantType;
+import ch.wisv.toornament.model.Status;
+
 public class TournamentRequest {
 
     private String discipline;
