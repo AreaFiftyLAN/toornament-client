@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class DisciplineDetails extends Discipline {
-
+    
     @JsonProperty("team_size")
     TeamSize teamSize;
     @JsonProperty("additional_fields")
