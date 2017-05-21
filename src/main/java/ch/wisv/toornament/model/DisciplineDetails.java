@@ -14,6 +14,6 @@ public class DisciplineDetails extends Discipline {
 
     private class TeamSize {
         int min;
-        int max;        
+        int max;
     }
 }
