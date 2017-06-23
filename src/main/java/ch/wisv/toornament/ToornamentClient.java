@@ -9,6 +9,7 @@ import ch.wisv.toornament.concepts.Tournaments;
 import ch.wisv.toornament.model.DisciplineDetails;
 import ch.wisv.toornament.model.request.ApiTokenRequest;
 import ch.wisv.toornament.model.response.ApiTokenResponse;
+import java.text.SimpleDateFormat;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -24,6 +25,7 @@ public class ToornamentClient {
     private String clientSecret;
     private String oAuthToken;
     private ObjectMapper mapper;
+    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
     public ToornamentClient(String apiKey, String clientId, String clientSecret) {
         this.apiKey = apiKey;
