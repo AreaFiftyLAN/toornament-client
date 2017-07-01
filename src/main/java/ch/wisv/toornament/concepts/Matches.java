@@ -70,7 +70,7 @@ public class Matches extends Concept {
             return mapper.readValue(responseBody, MatchDetails.class);
         } catch (IOException e) {
             e.printStackTrace();
-            throw new ToornamentException("Got IOExcption getting match with ID " + matchId);
+            throw new ToornamentException("Got IOException getting match with ID " + matchId);
         }
     }
 }

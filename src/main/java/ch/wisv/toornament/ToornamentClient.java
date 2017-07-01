@@ -1,18 +1,12 @@
 package ch.wisv.toornament;
 
 import ch.wisv.toornament.concepts.Disciplines;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
-
 import ch.wisv.toornament.concepts.Matches;
 import ch.wisv.toornament.concepts.Tournaments;
 import ch.wisv.toornament.exception.ToornamentException;
 import ch.wisv.toornament.model.TournamentDetails;
-import ch.wisv.toornament.model.DisciplineDetails;
 import ch.wisv.toornament.model.request.ApiTokenRequest;
 import ch.wisv.toornament.model.response.ApiTokenResponse;
-import java.text.SimpleDateFormat;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.*;
 
