@@ -10,7 +10,10 @@ public class ApiTokenResponse {
     String expiresIn;
     @JsonProperty("token_type")
     String tokenType;
+    @JsonProperty("scope")
     String scope;
+    @JsonProperty("error")
+    String error;
 
     public ApiTokenResponse() {
     }
