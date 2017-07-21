@@ -52,11 +52,19 @@ public class ApiTokenResponse {
         this.scope = scope;
     }
     
+    public String getMessage() {
+        return this.message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    
     public String getHint() {
         return this.hint;
     }
 
-    public void setMessage(String hint) {
+    public void setHint(String hint) {
         this.hint = hint;
     }
 
