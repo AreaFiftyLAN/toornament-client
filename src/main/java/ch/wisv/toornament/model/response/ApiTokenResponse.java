@@ -12,7 +12,6 @@ public class ApiTokenResponse {
     String tokenType;
     @JsonProperty("scope")		
       String scope;
-    @JsonProperty("error")
       String error;				
       String message;
       String hint;
