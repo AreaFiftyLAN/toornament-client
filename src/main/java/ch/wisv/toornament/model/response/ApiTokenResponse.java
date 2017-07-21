@@ -51,6 +51,22 @@ public class ApiTokenResponse {
     public void setScope(String scope) {
         this.scope = scope;
     }
+    
+    public String getError() {
+        return this.error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+    
+    public String getMessage() {
+        return this.message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
     public String toString() {
         return "ch.wisv.toornament.model.response.ApiTokenResponse(accessToken=" + this
