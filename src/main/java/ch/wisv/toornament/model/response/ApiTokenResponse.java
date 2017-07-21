@@ -10,8 +10,9 @@ public class ApiTokenResponse {
     String expiresIn;
     @JsonProperty("token_type")
     String tokenType;
-    String scope;
-
+    @JsonProperty("scope")		
+      String scope;
+    
     public ApiTokenResponse() {
     }
 
@@ -46,6 +47,7 @@ public class ApiTokenResponse {
     public void setScope(String scope) {
         this.scope = scope;
     }
+    
 
     public String toString() {
         return "ch.wisv.toornament.model.response.ApiTokenResponse(accessToken=" + this
