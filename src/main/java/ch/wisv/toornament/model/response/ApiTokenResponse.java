@@ -13,9 +13,9 @@ public class ApiTokenResponse {
     @JsonProperty("scope")		
       String scope;
     @JsonProperty("error")
-      String error;		
-    @JsonProperty("message")		
+      String error;				
       String message;
+      String hint;
 
     public ApiTokenResponse() {
     }
@@ -50,6 +50,14 @@ public class ApiTokenResponse {
 
     public void setScope(String scope) {
         this.scope = scope;
+    }
+    
+    public String getHint() {
+        return this.hint;
+    }
+
+    public void setMessage(String hint) {
+        this.hint = hint;
     }
 
     public String toString() {
