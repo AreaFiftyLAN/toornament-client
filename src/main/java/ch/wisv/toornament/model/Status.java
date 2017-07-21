@@ -8,7 +8,5 @@ public enum Status {
     @JsonProperty("running")
     RUNNING,
     @JsonProperty("completed")
-    COMPLETED,
-    @JsonProperty("pending")
-    PENDING
+    COMPLETED
 }
