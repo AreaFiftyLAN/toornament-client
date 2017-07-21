@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ToornamentError {
 
+    @JsonProperty("message")
     String message;
     String scope;
     @JsonProperty("property_path")
@@ -11,7 +12,9 @@ public class ToornamentError {
     @JsonProperty("invalid_value")
     String invalidValue;
     String type;
+    @JsonProperty("error")
     String error;
+    @JsonProperty("hint")
     String hint;
     public String getMessage() {
         return this.message;
