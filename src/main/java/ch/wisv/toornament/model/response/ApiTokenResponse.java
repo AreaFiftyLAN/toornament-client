@@ -13,6 +13,8 @@ public class ApiTokenResponse {
     @JsonProperty("scope")		
       String scope;
     String error;
+    String message;
+    String hint;
     
     public ApiTokenResponse() {
     }
@@ -56,6 +58,21 @@ public class ApiTokenResponse {
         this.error = error;
     }
     
+    public String getMessage() {
+        return this.message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    
+    public String getHint() {
+        return this.hint;
+    }
+
+    public void setHint(String hint) {
+        this.hint = hint;
+    }
 
     public String toString() {
         return "ch.wisv.toornament.model.response.ApiTokenResponse(accessToken=" + this

@@ -58,6 +58,7 @@ public class ToornamentClient {
         Request.Builder requestBuilder = new Request.Builder();
         try {
             RequestBody body = RequestBody.create(JSON, mapper.writeValueAsString(tokenRequest));
+            System.out.println(body.toString());
             requestBuilder.url("https://api.toornament.com/oauth/v2/token").post(body);
             Request request = requestBuilder.build();
             Response response = executeRequest(request);
