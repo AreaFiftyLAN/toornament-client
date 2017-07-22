@@ -62,6 +62,7 @@ public class Tournaments extends Concept {
             .build();
         try {
             String responseBody = client.executeRequest(request).body().string();
+            System.out.println(responseBody);
             return mapper.readValue(responseBody, mapper.getTypeFactory().constructCollectionType(ArrayList.class,
                 Tournament.class));
         } catch (IOException e) {
