@@ -55,7 +55,7 @@ public class Tournaments extends Concept {
 
     }
     
-    public ArrayList<Tournament> getTournamentByDiscipline(String discipline) {
+    public List<Tournament> getTournamentByDiscipline(String discipline) {
         Request request = client.getAuthenticatedRequestBuilder()
             .get()
             .url("https://api.toornament.com/v1/tournaments" + "?discipline=" + discipline)
@@ -63,7 +63,7 @@ public class Tournaments extends Concept {
         try {
             String responseBody = client.executeRequest(request).body().string();
             
-            return mapper.readValue(responseBody, mapper.getTypeFactory().constructCollectionType(ArrayList.class,
+            return mapper.readValue(responseBody, mapper.getTypeFactory().constructCollectionType(List.class,
                 Tournament.class));
         } catch (IOException e) {
             e.printStackTrace();
