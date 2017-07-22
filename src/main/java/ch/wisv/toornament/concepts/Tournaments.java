@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.List;
 
 import static ch.wisv.toornament.ToornamentClient.JSON;
+import okhttp3.HttpUrl;
 
 public class Tournaments extends Concept {
 
@@ -54,9 +55,10 @@ public class Tournaments extends Concept {
     }
     
     public List<Tournament> getTournamentByDiscipline(String discipline) {
+        String url = HttpUrl.parse("https://api.toornament.com/v1/tournaments").newBuilder().addQueryParameter("discipline", discipline).toString();
         Request request = client.getAuthenticatedRequestBuilder()
             .get()
-            .url("https://api.toornament.com/v1/tournaments" + "?&discipline=" + discipline)
+            .url(url)
             .build();
         try {
             String responseBody = client.executeRequest(request).body().string();
