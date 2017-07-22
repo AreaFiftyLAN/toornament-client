@@ -12,6 +12,7 @@ public class ApiTokenResponse {
     String tokenType;
     @JsonProperty("scope")		
       String scope;
+    String error;
     
     public ApiTokenResponse() {
     }
@@ -46,6 +47,13 @@ public class ApiTokenResponse {
 
     public void setScope(String scope) {
         this.scope = scope;
+    }
+    public String getError() {
+        return this.error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
     }
     
 
