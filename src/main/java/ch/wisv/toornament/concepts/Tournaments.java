@@ -55,10 +55,9 @@ public class Tournaments extends Concept {
     }
     
     public List<Tournament> getTournamentByDiscipline(String discipline) {
-        String url = HttpUrl.parse("https://api.toornament.com/v1/tournaments").newBuilder().addQueryParameter("discipline", discipline).toString();
         Request request = client.getAuthenticatedRequestBuilder()
             .get()
-            .url(url)
+            .url("https://api.toornament.com/v1/tournaments&" + "discipline=" + discipline)
             .build();
         try {
             String responseBody = client.executeRequest(request).body().string();
