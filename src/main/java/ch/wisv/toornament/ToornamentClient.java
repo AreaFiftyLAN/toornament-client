@@ -20,7 +20,7 @@ public class ToornamentClient {
     public static final MediaType JSON
         = MediaType.parse("application/json; charset=utf-8");
     public static final MediaType TEXT
-        = MediaType.parse("text/html; charset=utf-8");
+        = MediaType.parse("text/plain; charset=utf-8");
     private OkHttpClient httpClient;
     private String apiKey;
     private String clientId;
