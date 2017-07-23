@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.List;
 
 import static ch.wisv.toornament.ToornamentClient.JSON;
+import com.fasterxml.jackson.core.type.TypeReference;
 import java.util.ArrayList;
 import okhttp3.HttpUrl;
 
@@ -62,9 +63,10 @@ public class Tournaments extends Concept {
             .build();
         try {
             String responseBody = client.executeRequest(request).body().string();
+            TypeReference<List<Tournament>> mapType = new TypeReference<List<Tournament>>() {};
             
-            return mapper.readValue(responseBody, mapper.getTypeFactory().constructCollectionType(List.class,
-                Tournament.class));
+            return mapper.readValue(responseBody, mapType);
+
         } catch (IOException e) {
             e.printStackTrace();
             throw new ToornamentException("Couldn't retrieve any tournaments under that discipline");
