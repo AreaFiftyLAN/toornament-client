@@ -64,7 +64,7 @@ public class ToornamentClient {
             
             
             requestBuilder.url("https://api.toornament.com/oauth/v2/token" 
-                     + "grant_type=" + tokenRequest.getGrantType()
+                     + "?grant_type=" + tokenRequest.getGrantType()
                      + "&" + "client_id=" + tokenRequest.getClientId()
                      + "&" + "client_secret=" + tokenRequest.getClientSecret());
             Request request = requestBuilder.build();
