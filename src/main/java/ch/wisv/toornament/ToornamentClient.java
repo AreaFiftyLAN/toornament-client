@@ -60,7 +60,7 @@ public class ToornamentClient {
         Request.Builder requestBuilder = new Request.Builder();
         try {
             String mapped = mapper.writeValueAsString(tokenRequest).replaceAll(":","&");
-            RequestBody body = RequestBody.create(JSON, mapped);
+            RequestBody body = RequestBody.create(TEXT, mapped);
             
             
             requestBuilder.url("https://api.toornament.com/oauth/v2/token").post(body);
