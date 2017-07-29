@@ -59,10 +59,9 @@ public class ToornamentClient {
             new ApiTokenRequest("client_credentials", clientId, clientSecret);
         Request.Builder requestBuilder = new Request.Builder();
         try {
-            RequestBody body = RequestBody.create(JSON, mapper.writeValueAsString(tokenRequest));
-//            RequestBody body = RequestBody.create(TEXT, "grant_type=" + tokenRequest.getGrantType()
-//                     + "&" + "client_id=" + tokenRequest.getClientId()
-//                     + "&" + "client_secret=" + tokenRequest.getClientSecret());
+            String mapped = mapper.writeValueAsString(tokenRequest).replaceAll(":","&");
+            RequestBody body = RequestBody.create(JSON, mapped);
+            
             
             requestBuilder.url("https://api.toornament.com/oauth/v2/token").post(body);
             Request request = requestBuilder.build();
