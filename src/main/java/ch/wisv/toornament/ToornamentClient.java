@@ -63,7 +63,10 @@ public class ToornamentClient {
             RequestBody body = RequestBody.create(TEXT, mapped);
             
             
-            requestBuilder.url("https://api.toornament.com/oauth/v2/token").post(body);
+            requestBuilder.url("https://api.toornament.com/oauth/v2/token" 
+                     + "grant_type=" + tokenRequest.getGrantType()
+                     + "&" + "client_id=" + tokenRequest.getClientId()
+                     + "&" + "client_secret=" + tokenRequest.getClientSecret());
             Request request = requestBuilder.build();
             System.out.println(request.toString());
             Response response = executeRequest(request);
