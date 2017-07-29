@@ -66,6 +66,7 @@ public class ToornamentClient {
             
             requestBuilder.url("https://api.toornament.com/oauth/v2/token").post(body);
             Request request = requestBuilder.build();
+            System.out.println(request.toString());
             Response response = executeRequest(request);
             this.oAuthToken =
                 mapper.readValue(response.body().string(), ApiTokenResponse.class).getAccessToken();
