@@ -15,7 +15,6 @@ import java.util.List;
 
 import static ch.wisv.toornament.ToornamentClient.JSON;
 import com.fasterxml.jackson.databind.DeserializationFeature;
-import okhttp3.HttpUrl;
 
 public class Tournaments extends Concept {
 

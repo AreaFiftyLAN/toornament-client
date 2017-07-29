@@ -68,7 +68,6 @@ public class ToornamentClient {
                      + "&" + "client_id=" + tokenRequest.getClientId()
                      + "&" + "client_secret=" + tokenRequest.getClientSecret());
             Request request = requestBuilder.build();
-            System.out.println(request.toString());
             Response response = executeRequest(request);
             this.oAuthToken =
                 mapper.readValue(response.body().string(), ApiTokenResponse.class).getAccessToken();
