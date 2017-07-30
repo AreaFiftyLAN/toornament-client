@@ -52,6 +52,7 @@ public class Tournaments extends Concept {
             throw new ToornamentException("Couldn't retrieve tournaments");
         }
 
+
     }
     
     public List<Tournament> getTournamentByDiscipline(String discipline) {
@@ -68,6 +69,7 @@ public class Tournaments extends Concept {
             e.printStackTrace();
             throw new ToornamentException("Couldn't retrieve any tournaments under that discipline");
         }
+
 
     }
 
