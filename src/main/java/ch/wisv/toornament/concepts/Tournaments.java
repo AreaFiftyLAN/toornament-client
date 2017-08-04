@@ -15,7 +15,6 @@ import java.util.List;
 
 import static ch.wisv.toornament.ToornamentClient.JSON;
 import com.fasterxml.jackson.databind.DeserializationFeature;
-import javafx.util.Pair;
 
 public class Tournaments extends Concept {
 
@@ -27,29 +26,6 @@ public class Tournaments extends Concept {
         Request request = client.getRequestBuilder()
             .get()
             .url("https://api.toornament.com/v1/tournaments")
-            .build();
-        try {
-            String responseBody = client.executeRequest(request).body().string();
-            return mapper.readValue(responseBody, mapper.getTypeFactory().constructCollectionType(List.class,
-                Tournament.class));
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new ToornamentException("Couldn't retrieve tournaments");
-        }
-
-    }
-    
-    public List<Tournament> getTournamentsWithParams(List<Pair<String,String>> paramsList ) {
-        String url = "https://api.toornament.com/v1/tournaments?";
-
-        for (Pair<String, String> params : paramsList) {
-            url += params.getKey() + "=" + params.getValue() + "&";
-        }
-
-        System.out.println(url);
-        Request request = client.getRequestBuilder()
-            .get()
-            .url(url)
             .build();
         try {
             String responseBody = client.executeRequest(request).body().string();

@@ -74,9 +74,3 @@ hs_err_pid*
 
 /.idea/
 /.nb-gradle/
-/src/main/java/App/Runner.java
-/src/main/java/App/
-/build/
-
-.gitattributes
-.editorconfig
