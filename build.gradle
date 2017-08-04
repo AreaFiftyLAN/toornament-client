@@ -2,9 +2,9 @@ group 'ch.wisv'
 version '0.1'
 
 apply plugin: 'java'
-
+apply plugin: 'application'
 sourceCompatibility = 1.8
-
+mainClassName = "App.Runner"
 repositories {
     mavenCentral()
 }
