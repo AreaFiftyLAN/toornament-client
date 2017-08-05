@@ -15,7 +15,8 @@ import java.util.List;
 
 import static ch.wisv.toornament.ToornamentClient.JSON;
 import com.fasterxml.jackson.databind.DeserializationFeature;
-import javafx.util.Pair;
+import java.util.Map;
+import okhttp3.HttpUrl;
 
 public class Tournaments extends Concept {
 
@@ -74,15 +75,19 @@ public class Tournaments extends Concept {
 
     }
     
-    public List<Tournament> getTournamentsWithParams(List<Pair<String,String>> paramsList ) {
-        String url = "https://api.toornament.com/v1/tournaments?";
+    public List<Tournament> getTournamentsWithParams(Map<String, String> paramsMap ) {
+        HttpUrl.Builder url = new HttpUrl.Builder();
+       url.scheme("https")
+               .host("api.toornament.com")
+               .addEncodedPathSegment("v1")
+               .addEncodedPathSegment("tournaments");
 
-        for (Pair<String, String> params : paramsList) {
-            url += params.getKey() + "=" + params.getValue() + "&";
+        for (Map.Entry<String, String> params : paramsMap.entrySet()) {
+            url.addQueryParameter(params.getKey(), params.getValue());
         }
         Request request = client.getRequestBuilder()
             .get()
-            .url(url)
+            .url(url.build())
             .build();
         try {
             String responseBody = client.executeRequest(request).body().string();
