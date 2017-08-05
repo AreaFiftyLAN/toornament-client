@@ -6,6 +6,7 @@ import ch.wisv.toornament.model.Match;
 import ch.wisv.toornament.model.MatchDetails;
 import ch.wisv.toornament.model.TournamentDetails;
 import ch.wisv.toornament.model.enums.MatchSort;
+import okhttp3.HttpUrl;
 import okhttp3.Request;
 
 import java.io.IOException;
@@ -26,25 +27,28 @@ public class Matches extends Concept {
     public List<Match> getMatches(boolean hasResult, Integer stageNumber, Integer groupNumber, Integer roundNumber,
                                   MatchSort sort, String participantId, boolean withGames) {
         try {
-            StringBuilder urlBuilder = new StringBuilder("https://api.toornament.com/v1/tournaments/");
-            urlBuilder
-                .append(tournament.getId())
-                .append("/matches")
-                .append("?has_result=").append(hasResult ? "1" : "0");
+            HttpUrl.Builder urlBuilder = new HttpUrl.Builder()
+                .scheme("https")
+                .host("api.toornament.com")
+                .addPathSegment("v1/tournaments")
+                .addPathSegment(tournament.getId())
+                .addPathSegment("matches")
+                .addQueryParameter("has_result", hasResult ? "1" : "0");
+
             if (stageNumber != null) {
-                urlBuilder.append("&stage_number=").append(stageNumber);
+                urlBuilder.addQueryParameter("stage_number", String.valueOf(stageNumber));
             }
             if (groupNumber != null) {
-                urlBuilder.append("&group_number=").append(groupNumber);
+                urlBuilder.addQueryParameter("group_number", String.valueOf(groupNumber));
             }
             if (roundNumber != null) {
-                urlBuilder.append("&round_numer=").append(roundNumber);
+                urlBuilder.addQueryParameter("round_number", String.valueOf(roundNumber));
             }
-            urlBuilder.append("&sort=").append(sort.getName());
+            urlBuilder.addQueryParameter("sort", sort.getName());
             if (participantId != null) {
-                urlBuilder.append("&participant_id=").append(participantId);
+                urlBuilder.addQueryParameter("participant_id", participantId);
             }
-            urlBuilder.append("&with_games=").append(withGames ? "1" : "0");
+            urlBuilder.addQueryParameter("with_games", withGames ? "1" : "0");
 
             Request request = client.getAuthenticatedRequestBuilder()
                 .get()
