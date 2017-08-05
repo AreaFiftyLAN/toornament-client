@@ -3,6 +3,7 @@ package ch.wisv.toornament.model;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.ArrayList;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,6 +32,15 @@ public class TournamentDetails extends Tournament {
     @JsonProperty("match_format")
     private MatchFormat matchFormat;
     private String timezone;
+    private ArrayList maps;
+
+    public ArrayList getMaps() {
+        return maps;
+    }
+
+    public void setMaps(ArrayList maps) {
+        this.maps = maps;
+    }
 
     private Map<String, String> disciplineFields = new HashMap<>();
 
