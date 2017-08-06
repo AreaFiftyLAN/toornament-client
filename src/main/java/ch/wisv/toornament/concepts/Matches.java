@@ -4,6 +4,7 @@ import ch.wisv.toornament.ToornamentClient;
 import ch.wisv.toornament.exception.ToornamentException;
 import ch.wisv.toornament.model.Match;
 import ch.wisv.toornament.model.MatchDetails;
+import ch.wisv.toornament.model.MatchResult;
 import ch.wisv.toornament.model.TournamentDetails;
 import ch.wisv.toornament.model.enums.MatchSort;
 import okhttp3.HttpUrl;
@@ -72,6 +73,22 @@ public class Matches extends Concept {
                 .build();
             String responseBody = client.executeRequest(request).body().string();
             return mapper.readValue(responseBody, MatchDetails.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new ToornamentException("Got IOException getting match with ID " + matchId);
+        }
+    }
+
+    public MatchResult getResult(String matchId) {
+        try {
+            Request request = client.getAuthenticatedRequestBuilder()
+                .get()
+                .url("https://api.toornament.com/v1/tournaments/" + tournament.getId()
+                    + "/matches/" + matchId
+                    + "/result")
+                .build();
+            String responseBody = client.executeRequest(request).body().string();
+            return mapper.readValue(responseBody, MatchResult.class);
         } catch (IOException e) {
             e.printStackTrace();
             throw new ToornamentException("Got IOException getting match with ID " + matchId);

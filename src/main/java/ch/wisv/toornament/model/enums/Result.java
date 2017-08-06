@@ -1,12 +1,15 @@
 package ch.wisv.toornament.model.enums;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum Result {
-    @JsonProperty("1")
+    UNKNOWN,
     WIN,
-    @JsonProperty("2")
     DRAW,
-    @JsonProperty("3")
     LOSS;
+
+    @JsonValue
+    public int toValue() {
+        return ordinal();
+    }
 }
