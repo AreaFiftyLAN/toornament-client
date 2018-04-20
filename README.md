@@ -1,8 +1,7 @@
 [![Release](https://jitpack.io/v/AreaFiftyLAN/toornament-client.svg)](https://jitpack.io/AreaFiftyLAN/toornament-client)
 # Toornament client
 
-A java api client for Toornament. It's in very early development, but sort of usable. Expect a lot of (breaking) changes as we implement features. You're most welcome to help if you require a feature that's not implemented yet. Feel free to open an issue or pull request! We aim to respond / review within a few days.
-
+A java api client for Toornament. Currently not under active development by this team, but feel free to fork and continue development yourself. Pull requests will not be considered for the forseeable future.
 
 ## Add to Gradle:
 To use the current master branch in your project, add this to your build.gradle
